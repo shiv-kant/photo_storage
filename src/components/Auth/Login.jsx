@@ -39,39 +39,42 @@ function Login() {
   return (
     <div>
       {userLoggedIn && <Navigate to={'/home'} replace={true} />}
-      <main className="w-full h-screen flex self-center place-content-center place-items-center">
-        <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
+      <main
+        className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1603457893497-4de5ef1d8ab1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}
+      >
+        <div className="w-full max-w-md p-8 bg-white bg-opacity-90 rounded-lg shadow-lg">
           <div className="text-center">
-            <div className="mt-2">
-              <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Sign in to your account</h3>
-            </div>
+          <h3 className="text-2xl font-bold text-gray-800 text-center">Welcome Back!</h3>
+<p className="text-center text-gray-500 mt-2 mb-6">Sign in to continue</p>
+
           </div>
           <form onSubmit={onSubmit} className="space-y-5">
             <div>
-              <label className="text-sm text-gray-600 font-bold">Email</label>
+              <label className="text-sm text-gray-400 font-bold">Email</label>
               <input
                 type="email"
-                autoComplete='email'
+                autoComplete="email"
                 required
                 value={email}
-                placeholder='Enter Your Email'
+                placeholder="Enter Your Email"
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                className="w-full mt-2 px-3 py-2 text-gray-700 bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
               />
             </div>
             <div>
-              <label className="text-sm text-gray-600 font-bold">Password</label>
+              <label className="text-sm text-gray-400 font-bold">Password</label>
               <input
                 type="password"
-                autoComplete='current-password'
+                autoComplete="current-password"
                 required
                 value={password}
-                placeholder='Enter Your Password'
+                placeholder="Enter Your Password"
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                className="w-full mt-2 px-3 py-2 text-gray-700 bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
               />
             </div>
-            {errorMessage && <span className='text-red-600 font-bold'>{errorMessage}</span>}
+            {errorMessage && <span className="text-red-600 font-bold">{errorMessage}</span>}
             <button
               type="submit"
               disabled={isSigningIn}
@@ -80,16 +83,16 @@ function Login() {
               {isSigningIn ? 'Signing In...' : 'Sign In'}
             </button>
           </form>
-          <p className="text-center text-sm">Don't have an account? <Link to={'/register'} className="hover:underline font-bold">Sign Up</Link></p>
-          <div className='flex flex-row text-center w-full'>
-            <div className='border-b-2 mb-2.5 mr-2 w-full'></div>
-            <div className='text-sm font-bold w-fit'>OR</div>
-            <div className='border-b-2 mb-2.5 ml-2 w-full'></div>
+          <p className="text-center text-sm mt-4">Don't have an account? <Link to={'/register'} className="hover:underline font-bold text-indigo-400">Sign Up</Link></p>
+          <div className="flex items-center my-4">
+            <hr className="flex-grow border-gray-400" />
+            <span className="mx-4 text-sm font-bold text-gray-400">OR</span>
+            <hr className="flex-grow border-gray-400" />
           </div>
           <button
             disabled={isSigningIn}
             onClick={onGoogleSignIn}
-            className={`w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-100 transition duration-300 active:bg-gray-100'}`}
+            className={`w-full flex items-center justify-center gap-x-3 py-2.5 border border-gray-500 rounded-lg text-sm font-medium ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-700 transition duration-300'}`}
           >
             <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_17_40)">

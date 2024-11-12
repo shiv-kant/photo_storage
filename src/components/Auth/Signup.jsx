@@ -33,61 +33,69 @@ function Signup() {
   return (
     <>
       {userLoggedIn && <Navigate to={'/home'} replace={true} />}
-      <main className="w-full h-screen flex self-center place-content-center place-items-center">
-        <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
-          <div className="text-center mb-6">
-            <div className="mt-2">
-              <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Sign up to create an account</h3>
-            </div>
-          </div>
+      
+      {/* Background and Centered Form Container */}
+      <main className="w-full h-screen flex items-center justify-center bg-cover bg-center bg-gray-900" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1603457893497-4de5ef1d8ab1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+        <div className="w-full max-w-md p-8 bg-white bg-opacity-90 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold text-gray-800 text-center">Sign Up</h2>
+          <p className="text-center text-gray-500 mt-2 mb-6">Create a new account to get started</p>
+
           <form onSubmit={onSubmit} className="space-y-4">
             <div>
-              <label className="text-sm text-gray-600 font-bold">Name</label>
+              <label className="text-sm font-semibold text-gray-600">Name</label>
               <input
                 type="text"
-                autoComplete='name'
-                placeholder='Enter Your Full Name'
+                autoComplete="name"
+                placeholder="Enter Your Full Name"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:indigo-600 shadow-sm rounded-lg transition duration-300"
+                className="w-full mt-2 px-3 py-2 border rounded-lg text-gray-700 outline-none focus:border-indigo-500 transition duration-300"
               />
             </div>
             <div>
-              <label className="text-sm text-gray-600 font-bold">Email</label>
+              <label className="text-sm font-semibold text-gray-600">Email</label>
               <input
                 type="email"
-                autoComplete='email'
-                placeholder='Enter Your Email'
+                autoComplete="email"
+                placeholder="Enter Your Email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:indigo-600 shadow-sm rounded-lg transition duration-300"
+                className="w-full mt-2 px-3 py-2 border rounded-lg text-gray-700 outline-none focus:border-indigo-500 transition duration-300"
               />
             </div>
             <div>
-              <label className="text-sm text-gray-600 font-bold">Password</label>
+              <label className="text-sm font-semibold text-gray-600">Password</label>
               <input
                 type="password"
-                autoComplete='new-password'
+                autoComplete="new-password"
+                placeholder="Enter Your Password"
                 required
-                placeholder='Enter Your Password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                className="w-full mt-2 px-3 py-2 border rounded-lg text-gray-700 outline-none focus:border-indigo-500 transition duration-300"
               />
             </div>
-            {errorMessage && <span className='text-red-600 font-bold'>{errorMessage}</span>}
+
+            {/* Error Message */}
+            {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
+
+            {/* Sign Up Button */}
             <button
               type="submit"
               disabled={isRegistering}
-              className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isRegistering ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`}
+              className={`w-full py-2 mt-4 text-white font-semibold rounded-lg ${isRegistering ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 transition duration-300'}`}
             >
               {isRegistering ? 'Signing Up...' : 'Sign Up'}
             </button>
-            <div className="text-sm text-center">
-              Already have an account? {'  '}
-              <Link to={'/login'} className="text-center text-sm hover:underline font-bold">Login</Link>
+
+            {/* Redirect to Login */}
+            <div className="text-sm text-center mt-4">
+              Already have an account?{' '}
+              <Link to={'/login'} className="text-indigo-600 font-semibold hover:underline">
+                Log in
+              </Link>
             </div>
           </form>
         </div>
