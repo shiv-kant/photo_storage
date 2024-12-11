@@ -19,10 +19,10 @@ function StartPage() {
     >
       <div className="bg-black bg-opacity-80 p-8 rounded-lg text-center">
         <h1 className="text-5xl font-bold text-white mb-4">
-          Welcome to Your Memory Vault
+          Welcome To Your Personal Memory Vault
         </h1>
         <p className="text-lg text-gray-200 mb-8">
-          Store, protect, and relive your treasured memories.
+        Where Every Picture Tells a Story...!
         </p>
 
         <div className="flex justify-center space-x-4">
